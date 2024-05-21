@@ -41,4 +41,3 @@ Flutter provides a fast development process with its hot reload functionality, e
 Furthermore, Flutter ensures native performance by compiling the code into native machine code, resulting in better speed and responsiveness. The extensive widget library and reactive programming model of Flutter make it an ideal choice for building an interactive and feature-rich mobile application like the ASTU Course Hub.
 
 Lastly, Flutter has a strong community support system, which means ample resources, documentation, and community forums are available for developers to seek assistance and resolve any challenges they may encounter during the development process.
-
