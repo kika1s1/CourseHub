@@ -32,12 +32,35 @@ Course Hub is a mobile application designed specifically for ASTU students, offe
 
 14. **Block Numbers**: The app offers a directory of block numbers on the ASTU campus. Students can quickly locate classrooms, laboratories, libraries, and other facilities using the interactive map within the application.
 
-## Programming Language
+## Technology Stack
 
-For the development of the ASTU Course Hub, we have chosen Flutter as the programming language. Flutter is a powerful UI toolkit developed by Google that allows for cross-platform development. By utilizing Flutter, we can create a single codebase that is compatible with both Android and iOS platforms, reducing development time and effort.
+### Front-end Development with Flutter
 
-Flutter provides a fast development process with its hot reload functionality, enabling developers to see instant changes in the app during the coding process. Additionally, Flutter offers a rich UI framework, ensuring a visually appealing and user-friendly interface.
+Flutter is a powerful UI toolkit developed by Google for building natively compiled applications for mobile, web, and desktop from a single codebase. Here's why we've chosen Flutter for the front-end:
 
-Furthermore, Flutter ensures native performance by compiling the code into native machine code, resulting in better speed and responsiveness. The extensive widget library and reactive programming model of Flutter make it an ideal choice for building an interactive and feature-rich mobile application like the ASTU Course Hub.
+- **Cross-Platform Compatibility**: Develop a single codebase compatible with both Android and iOS platforms.
+- **Fast Development Process**: Utilize hot reload for instant UI changes during coding.
+- **Rich UI Framework**: Create visually appealing and user-friendly interfaces.
+- **Native Performance**: Ensure high performance and responsiveness.
+- **Extensive Widget Library**: Access a wide range of UI elements and animations.
+- **Reactive Programming Model**: Build reactive and data-driven UIs.
+- **Strong Community Support**: Benefit from extensive documentation and community forums.
 
-Lastly, Flutter has a strong community support system, which means ample resources, documentation, and community forums are available for developers to seek assistance and resolve any challenges they may encounter during the development process.
+### Backend Development with Node.js
+
+Node.js is a popular runtime environment for building scalable and high-performance server-side applications using JavaScript. Here's why we've chosen Node.js for the backend:
+
+- **JavaScript Everywhere**: Seamlessly transition between front-end and backend development.
+- **Asynchronous I/O**: Handle concurrent operations and I/O-bound tasks efficiently.
+- **Scalability and Performance**: Ensure excellent scalability and performance.
+- **NPM Ecosystem**: Integrate various functionalities with ease.
+- **Express.js Framework**: Use Express.js for building robust and modular backend APIs.
+- **Community Support**: Access extensive documentation and support resources.
+
+## Conclusion
+
+By combining Flutter for the front-end and Node.js for the backend, we aim to deliver a professional and high-quality ASTU Course Hub that offers a seamless user experience across multiple platforms.
+
+---
+
+_For more information, please refer to the [documentation](docs/) or reach out to [coursehub@email.com](mailto:tamiratkebede120@email.com)._ 
