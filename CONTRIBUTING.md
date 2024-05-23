@@ -19,11 +19,21 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 4. Ensure the test suite passes.
 5. Make sure your code lints.
 6. Issue that pull request!
+<<<<<<< HEAD
+=======
+> [!NOTE]
+> when you work on a new feature or bug fix,don't forget to create a new branch for that specific task.
+
+>>>>>>> main
 
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
+<<<<<<< HEAD
 ## Report bugs using Github's [issues](https://github.com/briandk/course_hub/issues)
+=======
+## Report bugs using Github's [issues](https://github.com/kika1s1/course_hub/issues)
+>>>>>>> main
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
@@ -51,4 +61,8 @@ I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebo
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
 ## References
+<<<<<<< HEAD
 This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+=======
+This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+>>>>>>> main
