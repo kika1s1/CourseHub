@@ -63,4 +63,19 @@ By combining Flutter for the front-end and Node.js for the backend, we aim to de
 
 ---
 
-_For more information, please refer to the [documentation](docs/) or reach out to [coursehub@email.com](mailto:tamiratkebede120@email.com)._ 
+_For more information, please refer to the [documentation](docs/) or reach out to [coursehub@email.com](mailto:tamiratkebede120@email.com)._
+
+<div style="text-align: center;">
+    <div style="text-align: center;">
+<img src="https://img.shields.io/badge/Design-Login%20UI-green" alt="Design: Login UI Badge">
+    </div>
+    <img src="api/src/uploads/login.png" alt="Login UI" style="max-width: 100%; height: auto;">
+</div>
+
+<div style="text-align: center;">
+    <div style="text-align: center;">
+        <div style="text-align: center;">
+        <img src="https://img.shields.io/badge/Design-Login%20UI-green" alt="Design: Login UI Badge">
+    </div>
+    <img src="api/src/uploads/coursehub message .png" alt="Post UI" style="max-width: 100%; height: auto;">
+</div>
