@@ -1,12 +1,38 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:course_hub/components/create_post_bottom.dart';
+import 'package:course_hub/data/post_data.dart';
+import 'package:course_hub/models/post.dart';
 import 'package:course_hub/screens/profile_screen.dart';
 import 'package:course_hub/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // Dummy data for posts
+  List<Post> posts = postsData.map((postData) {
+    return Post(
+      username: "@${postData['username']}",
+      content: "@${postData['post']}",
+    );
+  }).toList();
+  void _upvotePost(int index) {
+    setState(() {
+      posts[index].upvotes++;
+    });
+  }
+
+  void _downvotePost(int index) {
+    setState(() {
+      posts[index].downvotes++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +117,9 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 5,
+              itemCount: posts.length,
               itemBuilder: (context, index) {
-                return _buildPost(context, index);
+                return _buildPost(context, index, posts[index]);
               },
             ),
           ),
@@ -102,7 +128,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPost(BuildContext context, int index) {
+  Widget _buildPost(BuildContext context, int index, Post post) {
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
@@ -114,22 +140,55 @@ class HomeScreen extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
-                child: Icon(Icons.person,
-                    color: Theme.of(context).colorScheme.tertiary),
+                child: Icon(
+                  Icons.person,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
               ),
               const SizedBox(width: 10),
               Text(
-                'User ${index + 1}',
+                post.username,
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary),
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 10),
           Text(
-            'This is the post content for post ${index + 1}.',
-            style:
-                TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+            post.content,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.thumb_up),
+                color: Theme.of(context).colorScheme.primary,
+                onPressed: () {
+                  _upvotePost(index);
+                },
+              ),
+              Text(
+                '${post.upvotes}',
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
+              const SizedBox(width: 10),
+              IconButton(
+                icon: const Icon(Icons.thumb_down),
+                color: Theme.of(context).colorScheme.primary,
+                onPressed: () {
+                  _downvotePost(index);
+                },
+              ),
+              Text(
+                '${post.downvotes}',
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
+            ],
           ),
         ],
       ),
