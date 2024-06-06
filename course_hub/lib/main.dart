@@ -1,7 +1,18 @@
+import 'package:course_hub/auth/login_or_register.dart';
+import 'package:course_hub/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(providers: [
+    // Theme provider
+    ChangeNotifierProvider(create: (context)=>ThemeProvider()),
+    
+    ],
+    child: const MyApp(),
+  ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -9,15 +20,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        
-      ),
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:  const LoginOrRegister(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
