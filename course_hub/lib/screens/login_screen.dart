@@ -1,5 +1,6 @@
 import 'package:course_hub/components/my_button.dart';
 import 'package:course_hub/components/my_text_field.dart';
+import 'package:course_hub/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // login method
   void login() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
     // fill out authenticate
   }
 

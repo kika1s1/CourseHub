@@ -1,4 +1,5 @@
 import 'package:course_hub/auth/login_or_register.dart';
+import 'package:course_hub/theme/dark_mode.dart';
 import 'package:course_hub/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      // theme: lightMode,
+      darkTheme: darkMode,
+      themeMode: ThemeMode.system, 
       debugShowCheckedModeBanner: false,
       home:  const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
