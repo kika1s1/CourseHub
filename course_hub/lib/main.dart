@@ -4,6 +4,12 @@ import 'package:course_hub/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// import 'package:flutter/material.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:flutterfire_ui/flutterfire_ui.dart';
 void main() {
   runApp(
     MultiProvider(providers: [
@@ -26,6 +32,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkMode,
       themeMode: ThemeMode.system, 
       debugShowCheckedModeBanner: false,
+      //home create 
       home:  const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
