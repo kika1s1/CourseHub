@@ -4,7 +4,7 @@
 
 The Course Hub mobile application is tailored exclusively for students at ASTU (Adama Science and Technology University). It provides a comprehensive suite of features and detailed course-related information to cater to the needs of the ASTU student community. The app serves as a centralized hub that streamlines course selection, academic planning, and access to essential university resources. Course Hub provides the following key features:
 
-1. **User Registration**: Users can create an account within the app by providing their relevant information such as name, email address, and student ID. The registration process may also include password creation and validation.
+1. **User Registration***: Users can create an account within the app by providing their relevant information such as name, email address, and student ID. The registration process may also include password creation and validation.
 
 2. **User Login**: Once registered, users can log in to the ASTU Course Hub using their credentials (email address and password). The app will authenticate the user's credentials before granting access to personalized features and information.
 
