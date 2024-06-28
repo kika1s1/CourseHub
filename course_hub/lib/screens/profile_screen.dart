@@ -1,117 +1,104 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
+import 'package:course_hub/models/user.dart';
+import 'package:course_hub/models/post.dart';
+import 'package:course_hub/components/post_item.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ProfileScreen extends StatefulWidget {
-   const ProfileScreen({super.key});
+  final User user;
+  final List<Post> posts;
+
+  const ProfileScreen({required this.user, required this.posts, super.key});
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _departmentController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
+
+  String? token;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchToken();
+  }
+
+  Future<void> _fetchToken() async {
+    String? fetchedToken = await storage.read(key: 'token');
+    setState(() {
+      token = fetchedToken;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text('@${widget.user.username}\'s Profile'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                child: Icon(
-                  Icons.person,
-                  size: 80,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    TextFormField(
-                      controller: _nameController,
-                      decoration: const InputDecoration(labelText: 'Name'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    radius: 40,
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                      color: Theme.of(context).colorScheme.tertiary,
                     ),
-                    TextFormField(
-                      controller: _usernameController,
-                      decoration: const InputDecoration(labelText: 'Username'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your username';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      controller: _passwordController,
-                      decoration: const InputDecoration(labelText: 'Password'),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      controller: _departmentController,
-                      decoration: const InputDecoration(labelText: 'Department'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your department';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: 50,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            // Form is valid, you can proceed with the form data
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10), // Adjust border radius here
-                          ),
-                          backgroundColor: Theme.of(context).colorScheme.primary
-                        ),
-                        child:  Text('update',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.inversePrimary,
-                        ),
+                  ),
+                  const SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '@${widget.user.username}',
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                      const SizedBox(height: 10),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Handle add friend action
+                        },
+                        child: const Text('Add Friend'),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            const Divider(),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Posts',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  if (token != null)
+                    ...widget.posts.map((post) => PostItem(post: post, token: token!)).toList()
+                  else
+                    const Center(child: CircularProgressIndicator()), // Loading indicator while fetching the token
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

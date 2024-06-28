@@ -20,6 +20,15 @@ const commentSchema = new mongoose.Schema({
   },
   reply: {
     type: String
+  },
+  postId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post',
+    required: true
+  },
+  created_at: {
+    type: Date,
+    default: Date.now
   }
 });
 

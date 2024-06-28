@@ -3,11 +3,24 @@
   "version": "1.0.0",
   "description": "Course Hub is a mobile application designed specifically for ASTU students, offering comprehensive course information and a range of valuable features. The app serves as a centralized hub that streamlines course selection, academic planning, and access to essential university resources. Course Hub provides the following key features:",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon start api/src/app.js"
+    "start": "nodemon start api/src/app.js",
+
+    "data:import": "node api/src/seeder.js --import",
+    "data:destroy": "node api/src/seeder.js --destroy"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.1"
+  }
 }

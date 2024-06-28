@@ -6,7 +6,9 @@
 
 
 import express from 'express';
-import { register, login, logout } from '../controllers/authController.js';
+import { register, login, logout, updateProfile, getCurrentUserDetails } from '../controllers/authController.js';
+import { verifyToken } from '../middleware/authMiddleware.js';
+// import { getCurrentUserDetails } from '../controllers/users.js';
 
 const authRouter = express.Router();
 
@@ -15,6 +17,12 @@ authRouter.post('/register', register);
 
 // User login
 authRouter.post('/login', login);
+
+// current user
+authRouter.get('/me',  verifyToken, getCurrentUserDetails);
+
+// User profile update
+authRouter.put('/me', verifyToken, updateProfile);
 
 // User logout
 authRouter.post('/logout', logout);

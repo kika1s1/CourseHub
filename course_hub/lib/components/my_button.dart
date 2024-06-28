@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// Mode button created
+
 class MyButton extends StatelessWidget {
   final Function()? onTap;
   final String text;
