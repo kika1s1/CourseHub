@@ -6,7 +6,7 @@ import 'package:course_hub/theme/dark_mode.dart';
 import 'package:course_hub/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+// main
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
